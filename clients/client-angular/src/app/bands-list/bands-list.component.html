@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let band of bands" class="col-4">
+      <div class="card m-2">
+        <img
+          class="card-img-top"
+          src="{{ band.img_url }}"
+          alt="Card image cap"
+        />
+        <div class="card-body" *ngIf="isCollapsed">
+          <p class="card-text">{{ band.info | slice: 0:100 }} ...</p>
+          <button (click)="toggle()" class="btn btn-primary">
+            Show more
+          </button>
+        </div>
+        <div class="card-body" *ngIf="!isCollapsed">
+          <p class="card-text">{{ band.info }}</p>
+          <button (click)="toggle()" class="btn btn-primary">
+            Show less
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
